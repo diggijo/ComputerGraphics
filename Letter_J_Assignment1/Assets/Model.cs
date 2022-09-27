@@ -24,6 +24,7 @@ public class Model : MonoBehaviour
 
     private void addFaces()
     {
+        //Front
         faces.Add(new Vector3Int(1, 0, 2));
         faces.Add(new Vector3Int(1, 2, 5));
         faces.Add(new Vector3Int(4, 3, 10));
@@ -34,6 +35,8 @@ public class Model : MonoBehaviour
         faces.Add(new Vector3Int(9, 8, 12));
         faces.Add(new Vector3Int(7, 8, 9));
         faces.Add(new Vector3Int(7, 6, 8));
+        
+        //Back
         faces.Add(new Vector3Int(15, 16, 14));
         faces.Add(new Vector3Int(15, 19, 16));
         faces.Add(new Vector3Int(18, 24, 17));
@@ -44,6 +47,8 @@ public class Model : MonoBehaviour
         faces.Add(new Vector3Int(23, 26, 22));
         faces.Add(new Vector3Int(21, 23, 22));
         faces.Add(new Vector3Int(21, 22, 20));
+
+        //Left
         faces.Add(new Vector3Int(0, 14, 16));
         faces.Add(new Vector3Int(0, 16, 2));
         faces.Add(new Vector3Int(3, 17, 24));
@@ -52,6 +57,8 @@ public class Model : MonoBehaviour
         faces.Add(new Vector3Int(6, 22, 8));
         faces.Add(new Vector3Int(22, 26, 12));
         faces.Add(new Vector3Int(22, 12, 8));
+
+        //Right
         faces.Add(new Vector3Int(15, 1, 5));
         faces.Add(new Vector3Int(15, 5, 19));
         faces.Add(new Vector3Int(18, 4, 11));
@@ -60,12 +67,16 @@ public class Model : MonoBehaviour
         faces.Add(new Vector3Int(21, 9, 23));
         faces.Add(new Vector3Int(11, 13, 27));
         faces.Add(new Vector3Int(11, 27, 25));
-        faces.Add(new Vector3Int(25, 14, 0));
-        faces.Add(new Vector3Int(25, 0, 1));
+
+        //Top
+        faces.Add(new Vector3Int(15, 14, 0));
+        faces.Add(new Vector3Int(15, 0, 1));
         faces.Add(new Vector3Int(21, 20, 6));
         faces.Add(new Vector3Int(21, 6, 7));
         faces.Add(new Vector3Int(23, 9, 10));
         faces.Add(new Vector3Int(23, 10, 24));
+
+        //Bottom
         faces.Add(new Vector3Int(8, 22, 26));
         faces.Add(new Vector3Int(8, 26, 12));
         faces.Add(new Vector3Int(13, 12, 26));
@@ -112,11 +123,9 @@ public class Model : MonoBehaviour
 
     public GameObject CreateUnityGameObject()
     {
-        addVertices();
-        addFaces();
-
         Mesh mesh = new Mesh();
         GameObject newGO = new GameObject();
+        Model model = newGO.AddComponent<Model>();
         MeshFilter mesh_filter = newGO.AddComponent<MeshFilter>();
         MeshRenderer mesh_renderer = newGO.AddComponent<MeshRenderer>();
 

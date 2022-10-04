@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Model : MonoBehaviour
+public class Model 
 {
-    List<Vector3> vertices = new List<Vector3>();
+    internal List<Vector3> vertices = new List<Vector3>();
     List<Vector3Int> faces = new List<Vector3Int>();
     List<Vector2> texture_coordinates = new List<Vector2>();
     List<Vector3Int> texture_index_list = new List<Vector3Int>();
@@ -17,10 +17,7 @@ public class Model : MonoBehaviour
         addFaces();
     }
 
-    public void Start()
-    {
-        CreateUnityGameObject();
-    }
+
 
     private void addFaces()
     {
@@ -123,9 +120,11 @@ public class Model : MonoBehaviour
 
     public GameObject CreateUnityGameObject()
     {
+        //addFaces();
+        //addVertices();
         Mesh mesh = new Mesh();
         GameObject newGO = new GameObject();
-        Model model = newGO.AddComponent<Model>();
+     
         MeshFilter mesh_filter = newGO.AddComponent<MeshFilter>();
         MeshRenderer mesh_renderer = newGO.AddComponent<MeshRenderer>();
 

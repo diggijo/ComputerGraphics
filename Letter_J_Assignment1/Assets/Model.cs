@@ -15,9 +15,108 @@ public class Model
     {
         addVertices();
         addFaces();
+        addTextureCoOrds();
+        addTextureIndex();
     }
 
+    private void addTextureIndex()
+    {
+        //Front
+        texture_index_list.Add(new Vector3Int(1, 0, 2));
+        texture_index_list.Add(new Vector3Int(1, 2, 5));
+        texture_index_list.Add(new Vector3Int(4, 3, 10));
+        texture_index_list.Add(new Vector3Int(4, 10, 11));
+        texture_index_list.Add(new Vector3Int(10, 13, 11));
+        texture_index_list.Add(new Vector3Int(10, 9, 12));
+        texture_index_list.Add(new Vector3Int(10, 12, 13));
+        texture_index_list.Add(new Vector3Int(9, 8, 12));
+        texture_index_list.Add(new Vector3Int(7, 8, 9));
+        texture_index_list.Add(new Vector3Int(7, 6, 8));
 
+        //Back
+        texture_index_list.Add(new Vector3Int(15, 16, 14));
+        texture_index_list.Add(new Vector3Int(15, 19, 16));
+        texture_index_list.Add(new Vector3Int(18, 24, 17));
+        texture_index_list.Add(new Vector3Int(18, 25, 24));
+        texture_index_list.Add(new Vector3Int(24, 25, 27));
+        texture_index_list.Add(new Vector3Int(24, 27, 26));
+        texture_index_list.Add(new Vector3Int(24, 26, 23));
+        texture_index_list.Add(new Vector3Int(23, 26, 22));
+        texture_index_list.Add(new Vector3Int(21, 23, 22));
+        texture_index_list.Add(new Vector3Int(21, 22, 20));
+
+        //Left
+        texture_index_list.Add(new Vector3Int(0, 14, 16));
+        texture_index_list.Add(new Vector3Int(0, 16, 2));
+        texture_index_list.Add(new Vector3Int(3, 17, 24));
+        texture_index_list.Add(new Vector3Int(3, 24, 10));
+        texture_index_list.Add(new Vector3Int(6, 20, 22));
+        texture_index_list.Add(new Vector3Int(6, 22, 8));
+        texture_index_list.Add(new Vector3Int(22, 26, 12));
+        texture_index_list.Add(new Vector3Int(22, 12, 8));
+
+        //Right
+        texture_index_list.Add(new Vector3Int(15, 1, 5));
+        texture_index_list.Add(new Vector3Int(15, 5, 19));
+        texture_index_list.Add(new Vector3Int(18, 4, 11));
+        texture_index_list.Add(new Vector3Int(18, 11, 25));
+        texture_index_list.Add(new Vector3Int(21, 7, 9));
+        texture_index_list.Add(new Vector3Int(21, 9, 23));
+        texture_index_list.Add(new Vector3Int(11, 13, 27));
+        texture_index_list.Add(new Vector3Int(11, 27, 25));
+
+        //Top
+        texture_index_list.Add(new Vector3Int(15, 14, 0));
+        texture_index_list.Add(new Vector3Int(15, 0, 1));
+        texture_index_list.Add(new Vector3Int(21, 20, 6));
+        texture_index_list.Add(new Vector3Int(21, 6, 7));
+        texture_index_list.Add(new Vector3Int(23, 9, 10));
+        texture_index_list.Add(new Vector3Int(23, 10, 24));
+
+        //Bottom
+        texture_index_list.Add(new Vector3Int(8, 22, 26));
+        texture_index_list.Add(new Vector3Int(8, 26, 12));
+        texture_index_list.Add(new Vector3Int(13, 12, 26));
+        texture_index_list.Add(new Vector3Int(13, 26, 27));
+        texture_index_list.Add(new Vector3Int(13, 27, 25));
+        texture_index_list.Add(new Vector3Int(13, 25, 11));
+        texture_index_list.Add(new Vector3Int(4, 18, 19));
+        texture_index_list.Add(new Vector3Int(4, 19, 5));
+        texture_index_list.Add(new Vector3Int(3, 2, 16));
+        texture_index_list.Add(new Vector3Int(3, 16, 17));
+    }
+
+    private void addTextureCoOrds()
+    {
+        texture_coordinates.Add(new Vector2(50, 100));
+        texture_coordinates.Add(new Vector2(450, 100));
+        texture_coordinates.Add(new Vector2(50, 180));
+        texture_coordinates.Add(new Vector2(210, 180));
+        texture_coordinates.Add(new Vector2(290, 180));
+        texture_coordinates.Add(new Vector2(450, 180));
+        texture_coordinates.Add(new Vector2(50, 340));
+        texture_coordinates.Add(new Vector2(130, 340));
+        texture_coordinates.Add(new Vector2(50, 420));
+        texture_coordinates.Add(new Vector2(130, 420));
+        texture_coordinates.Add(new Vector2(210, 420));
+        texture_coordinates.Add(new Vector2(290, 420));
+        texture_coordinates.Add(new Vector2(130, 500));
+        texture_coordinates.Add(new Vector2(210, 500));
+        texture_coordinates.Add(new Vector2(850, 500));
+        texture_coordinates.Add(new Vector2(450, 500));
+        texture_coordinates.Add(new Vector2(850, 580));
+        texture_coordinates.Add(new Vector2(690, 580));
+        texture_coordinates.Add(new Vector2(610, 580));
+        texture_coordinates.Add(new Vector2(450, 580));
+        texture_coordinates.Add(new Vector2(850, 740));
+        texture_coordinates.Add(new Vector2(770, 740));
+        texture_coordinates.Add(new Vector2(850, 820));
+        texture_coordinates.Add(new Vector2(770, 820));
+        texture_coordinates.Add(new Vector2(690, 820));
+        texture_coordinates.Add(new Vector2(610, 820));
+        texture_coordinates.Add(new Vector2(770, 990));
+        texture_coordinates.Add(new Vector2(690, 900));
+    }
 
     private void addFaces()
     {
@@ -120,8 +219,6 @@ public class Model
 
     public GameObject CreateUnityGameObject()
     {
-        //addFaces();
-        //addVertices();
         Mesh mesh = new Mesh();
         GameObject newGO = new GameObject();
      

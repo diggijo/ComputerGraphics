@@ -41,8 +41,37 @@ public class GraphicsPipeline : MonoBehaviour
         List<Vector3> image_after_translation = get_image(image_after_scale, translate_matrix);
         print_verts(image_after_translation);
 
-        //Print Single Matrix
-        Matrix4x4 single_matrix = translate_matrix * scale_matrix * rotation_matrix;
+        //Single Matrix for Transformations
+        Matrix4x4 single_matrix_transformations = translate_matrix * scale_matrix * rotation_matrix;
+        print_matrix(single_matrix_transformations);
+
+        //Print Vertices using the one matrix for transformations
+        List<Vector3> image_after_single_matrix_transformations = get_image(verts, single_matrix_transformations);
+        print_verts(image_after_single_matrix_transformations);
+
+        //Viewing Matrix
+        Vector3 camPos = new Vector3(14, 6, 53);
+        Vector3 camLookAt = new Vector3(3, 12, 3).normalized;
+        Vector3 camUp = new Vector3(4, 3, 12).normalized;
+
+        Matrix4x4 viewing_matrix = Matrix4x4.LookAt(camPos, camLookAt, camUp);
+        print_matrix(viewing_matrix);
+
+        //Print Image after Viewing Matrix
+        List<Vector3> image_after_viewing = get_image(image_after_translation, viewing_matrix);
+        print_verts(image_after_viewing);
+
+
+        //Projection Matrix
+        Matrix4x4 proj_matrix = Matrix4x4.Perspective(90, 1, 1, 1000);
+        print_matrix(proj_matrix);
+
+        //Print Image after Viewing Matrix
+        List<Vector3> image_after_projection = get_image(image_after_viewing, proj_matrix);
+        print_verts(image_after_projection);
+
+        //Single Matrix
+        Matrix4x4 single_matrix = proj_matrix * viewing_matrix * translate_matrix * scale_matrix * rotation_matrix;
         print_matrix(single_matrix);
 
         //Print Vertices using the one matrix
@@ -56,7 +85,9 @@ public class GraphicsPipeline : MonoBehaviour
 
         foreach (Vector3 v in list_verts)
         {
-            hold.Add(transform_matrix * v);
+            Vector4 v2 = new Vector4(v.x, v.y, v.z, 1);
+
+            hold.Add(transform_matrix * v2);
         }
 
         return hold;
